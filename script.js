@@ -1,17 +1,12 @@
 /* ---------------- MUSIC ---------------- */
-const music = document.getElementById("music");
-
-function enableMusicOnce() {
-  music.volume = 0.8;
+function startMusic() {
   music.play().catch(() => {});
-  document.removeEventListener("click", enableMusicOnce);
-  document.removeEventListener("touchstart", enableMusicOnce);
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("touchstart", startMusic);
 }
 
-// Works for mobile + desktop
-document.addEventListener("click", enableMusicOnce, { once: true });
-document.addEventListener("touchstart", enableMusicOnce, { once: true });
-
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
 
 /* ---------------- SCENES ---------------- */
 const text = document.getElementById("text");
@@ -123,3 +118,4 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
+
