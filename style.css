@@ -120,7 +120,7 @@ body {
 
 .fade-img {
   position: fixed;
-  bottom: 18%;
+  bottom: 25%;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
   max-width: 70vw;
@@ -164,3 +164,4 @@ body {
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
