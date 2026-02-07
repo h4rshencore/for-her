@@ -1,17 +1,24 @@
 /* ---------------- MUSIC ---------------- */
 const music = document.getElementById("music");
 
-function enableMusicOnce() {
-  music.volume = 0.8;
-  music.play().catch(() => {});
-  document.removeEventListener("click", enableMusicOnce);
-  document.removeEventListener("touchstart", enableMusicOnce);
+function unlockAudio() {
+  music.play().then(() => {
+    console.log("Music started");
+  }).catch(err => {
+    console.log("Audio blocked", err);
+  });
+
+  document.removeEventListener("touchstart", unlockAudio);
+  document.removeEventListener("pointerdown", unlockAudio);
+  document.removeEventListener("click", unlockAudio);
 }
 
-// Works for mobile + desktop
-document.addEventListener("click", enableMusicOnce, { once: true });
-document.addEventListener("touchstart", enableMusicOnce, { once: true });
+// Mobile (most important)
+document.addEventListener("touchstart", unlockAudio, { once: true });
 
+// Backup
+document.addEventListener("pointerdown", unlockAudio, { once: true });
+document.addEventListener("click", unlockAudio, { once: true });
 
 /* ---------------- SCENES ---------------- */
 const text = document.getElementById("text");
@@ -132,3 +139,4 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
+
