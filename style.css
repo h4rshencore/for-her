@@ -168,7 +168,7 @@ body {
 
 .final-line {
   position: fixed;
-  top: 20%;
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.4rem;
@@ -188,4 +188,5 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
 
