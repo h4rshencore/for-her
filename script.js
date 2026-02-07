@@ -1,12 +1,14 @@
 /* ---------------- MUSIC ---------------- */
 const music = document.getElementById("music");
 
-function enableMusicOnce() {
-  music.volume = 0.8;
+function startMusic() {
   music.play().catch(() => {});
-  document.removeEventListener("click", enableMusicOnce);
-  document.removeEventListener("touchstart", enableMusicOnce);
+  document.removeEventListener("touchstart", startMusic);
+  document.removeEventListener("click", startMusic);
 }
+
+document.addEventListener("touchstart", startMusic, { once: true });
+document.addEventListener("click", startMusic, { once: true });
 
 // Works for mobile + desktop
 document.addEventListener("click", enableMusicOnce, { once: true });
@@ -132,3 +134,4 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
+
