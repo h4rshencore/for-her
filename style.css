@@ -120,7 +120,7 @@ body {
 
 .fade-img {
   position: fixed;
-  top: 20%;
+  top: 25%;
   bottom: 38%;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
@@ -145,7 +145,7 @@ body {
 
 .letter-img {
   position: fixed;
-  top:20%;
+  top:30%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.92);
   width: 85%;
@@ -188,5 +188,3 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
-
