@@ -1,42 +1,21 @@
 /* ---------------- MUSIC ---------------- */
-function firstInteraction(e) {
-  music.play().catch(() => {});
-  document.removeEventListener("touchstart", firstInteraction);
-  document.removeEventListener("click", firstInteraction);
-}
-
-document.addEventListener("touchstart", firstInteraction, { once: true });
-document.addEventListener("click", firstInteraction, { once: true });
-
 const music = document.getElementById("music");
+const startScreen = document.getElementById("startScreen");
+const startBtn = document.getElementById("startBtn");
 
-function enableMusicOnce() {
-  if (!music) return;
-
+startBtn.addEventListener("click", () => {
   music.volume = 0.8;
 
-  // Important: ensure playback is triggered directly by touch
-  const playPromise = music.play();
+  music.play().then(() => {
+    startScreen.style.opacity = "0";
+    setTimeout(() => {
+      startScreen.style.display = "none";
+    }, 500);
+  }).catch(err => {
+    console.log("Audio blocked", err);
+  });
+});
 
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      // silently fail if browser blocks once, next tap will succeed
-    });
-  }
-
-  document.removeEventListener("touchstart", enableMusicOnce);
-  document.removeEventListener("pointerdown", enableMusicOnce);
-  document.removeEventListener("click", enableMusicOnce);
-}
-
-// 🔥 Mobile-first (most important)
-document.addEventListener("touchstart", enableMusicOnce, { once: true });
-
-// Modern fallback
-document.addEventListener("pointerdown", enableMusicOnce, { once: true });
-
-// Desktop fallback
-document.addEventListener("click", enableMusicOnce, { once: true });
 
 /* ---------------- SCENES ---------------- */
 const text = document.getElementById("text");
@@ -157,6 +136,5 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
-
 
 
