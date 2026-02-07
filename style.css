@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: black;
+  overflow: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+#bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+#roses {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  z-index: 1;
+}
+
+#dayIcon {
+  width: 90px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+#text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 90%;
+  transition: opacity 1s ease;
+}
+
+#final p {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+/* ================= BUTTONS ================= */
+
+.options button {
+  margin: 8px;
+  padding: 14px 22px;
+  font-size: 18px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.options button:active {
+  transform: scale(0.95);
+}
+
+#noText {
+  color: white;
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+/* ================= VISIBILITY ================= */
+
+.hidden {
+  display: none !important;
+}
+
+/* ================= SPARKLES ================= */
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff, #ff9eb5, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  animation: sparkleFade 1.4s ease-out forwards;
+}
+
+@keyframes sparkleFade {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ================= HER PHOTO ================= */
+
+.fade-img {
+  position: fixed;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  max-width: 70vw;
+  border-radius: 14px;
+  opacity: 0;
+  z-index: 25;
+}
+
+.fade-in {
+  animation: fadeIn 1.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* ================= LETTER ================= */
+
+.letter-img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  width: 85%;
+  max-width: 360px;
+  border-radius: 16px;
+  opacity: 0;
+  z-index: 30;
+}
+
+.letter-show {
+  animation: letterIn 1.8s ease forwards;
+}
+
+@keyframes letterIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

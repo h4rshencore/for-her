@@ -1,0 +1,15 @@
+{
+  "name": "Rose Day",
+  "short_name": "Rose 🌹",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#4B1D3F",
+  "theme_color": "#4B1D3F",
+  "icons": [
+    {
+      "src": "character.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

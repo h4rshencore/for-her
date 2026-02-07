@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Background elements -->
+  <div id="rose-layer"></div>
+
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="assets/video.mp4" type="video/mp4" />
+  </video>
+
+  <canvas id="roses"></canvas>
+
+  <audio id="music" src="assets/song.mp3"></audio>
+
+  <!-- Main overlay -->
+  <div class="overlay">
+    <img id="dayIcon" alt="" />
+    <div id="text"></div>
+
+    <div id="final" class="hidden">
+      <p>Meri duniya banogi kya?</p>
+
+      <div class="options">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 🙈</button>
+      </div>
+
+      <p id="noText" class="hidden">Arre… thoda soch lo na 🥺</p>
+    </div>
+  </div>
+
+  <!-- ❤️ These MUST be BEFORE script.js -->
+  <img
+    id="herPhoto"
+    src="assets/photos/her.png"
+    class="hidden fade-img"
+    alt=""
+  />
+
+  <img
+    id="loveLetter"
+    src="assets/photos/letter.png"
+    class="hidden letter-img"
+    alt=""
+  />
+
+  <!-- JS always LAST -->
+  <script src="script.js"></script>
+
+</body>
+</html>
