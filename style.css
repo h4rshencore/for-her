@@ -145,7 +145,7 @@ body {
 
 .letter-img {
   position: fixed;
-  top:55%;
+  top:20%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.92);
   width: 85%;
@@ -188,4 +188,5 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
 
