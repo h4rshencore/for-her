@@ -1,12 +1,17 @@
 /* ---------------- MUSIC ---------------- */
-function startMusic() {
+const music = document.getElementById("music");
+
+function enableMusicOnce() {
+  music.volume = 0.8;
   music.play().catch(() => {});
-  document.removeEventListener("click", startMusic);
-  document.removeEventListener("touchstart", startMusic);
+  document.removeEventListener("click", enableMusicOnce);
+  document.removeEventListener("touchstart", enableMusicOnce);
 }
 
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
+// Works for mobile + desktop
+document.addEventListener("click", enableMusicOnce, { once: true });
+document.addEventListener("touchstart", enableMusicOnce, { once: true });
+
 
 /* ---------------- SCENES ---------------- */
 const text = document.getElementById("text");
@@ -106,7 +111,16 @@ yesBtn?.addEventListener("click", () => {
     loveLetter.classList.remove("hidden");
     loveLetter.classList.add("fade-in");
   }, 2000);
+
+
+  setTimeout(() => {
+
+    const line = document.getElementById("finalLine");
+    line.classList.remove("hidden");
+    line.classList.add("show");
+  }, 2600);
 });
+
 
 /* ---------------- FINAL TEXT ---------------- */
 function end() {
@@ -118,4 +132,3 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
-

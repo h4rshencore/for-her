@@ -120,7 +120,8 @@ body {
 
 .fade-img {
   position: fixed;
-  bottom: 25%;
+  top: 20%;
+  bottom: 38%;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
   max-width: 70vw;
@@ -144,7 +145,7 @@ body {
 
 .letter-img {
   position: fixed;
-  top: 40%;
+  top:60%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.92);
   width: 85%;
@@ -165,3 +166,25 @@ body {
   }
 }
 
+.final-line {
+  position: fixed;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  color: white;
+  text-align: center;
+  max-width: 90%;
+  z-index: 50;
+  opacity: 0;
+}
+
+.final-line.show {
+  display: block;
+  animation: lineFadeIn 1.6s ease forwards;
+}
+
+@keyframes lineFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
