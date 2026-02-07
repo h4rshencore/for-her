@@ -1,14 +1,12 @@
 /* ---------------- MUSIC ---------------- */
 const music = document.getElementById("music");
 
-function startMusic() {
+function enableMusicOnce() {
+  music.volume = 0.8;
   music.play().catch(() => {});
-  document.removeEventListener("touchstart", startMusic);
-  document.removeEventListener("click", startMusic);
+  document.removeEventListener("click", enableMusicOnce);
+  document.removeEventListener("touchstart", enableMusicOnce);
 }
-
-document.addEventListener("touchstart", startMusic, { once: true });
-document.addEventListener("click", startMusic, { once: true });
 
 // Works for mobile + desktop
 document.addEventListener("click", enableMusicOnce, { once: true });
@@ -116,11 +114,11 @@ yesBtn?.addEventListener("click", () => {
 
 
   setTimeout(() => {
-
     const line = document.getElementById("finalLine");
     line.classList.remove("hidden");
     line.classList.add("show");
   }, 2600);
+  
 });
 
 
@@ -134,4 +132,3 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
-
