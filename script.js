@@ -1,4 +1,13 @@
 /* ---------------- MUSIC ---------------- */
+function firstInteraction(e) {
+  music.play().catch(() => {});
+  document.removeEventListener("touchstart", firstInteraction);
+  document.removeEventListener("click", firstInteraction);
+}
+
+document.addEventListener("touchstart", firstInteraction, { once: true });
+document.addEventListener("click", firstInteraction, { once: true });
+
 const music = document.getElementById("music");
 
 function enableMusicOnce() {
@@ -148,5 +157,6 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
+
 
 
