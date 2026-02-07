@@ -1,24 +1,33 @@
 /* ---------------- MUSIC ---------------- */
 const music = document.getElementById("music");
 
-function unlockAudio() {
-  music.play().then(() => {
-    console.log("Music started");
-  }).catch(err => {
-    console.log("Audio blocked", err);
-  });
+function enableMusicOnce() {
+  if (!music) return;
 
-  document.removeEventListener("touchstart", unlockAudio);
-  document.removeEventListener("pointerdown", unlockAudio);
-  document.removeEventListener("click", unlockAudio);
+  music.volume = 0.8;
+
+  // Important: ensure playback is triggered directly by touch
+  const playPromise = music.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // silently fail if browser blocks once, next tap will succeed
+    });
+  }
+
+  document.removeEventListener("touchstart", enableMusicOnce);
+  document.removeEventListener("pointerdown", enableMusicOnce);
+  document.removeEventListener("click", enableMusicOnce);
 }
 
-// Mobile (most important)
-document.addEventListener("touchstart", unlockAudio, { once: true });
+// 🔥 Mobile-first (most important)
+document.addEventListener("touchstart", enableMusicOnce, { once: true });
 
-// Backup
-document.addEventListener("pointerdown", unlockAudio, { once: true });
-document.addEventListener("click", unlockAudio, { once: true });
+// Modern fallback
+document.addEventListener("pointerdown", enableMusicOnce, { once: true });
+
+// Desktop fallback
+document.addEventListener("click", enableMusicOnce, { once: true });
 
 /* ---------------- SCENES ---------------- */
 const text = document.getElementById("text");
@@ -139,4 +148,5 @@ function end() {
     <br><b>— Your Harshvardhan</b>
   `;
 }
+
 
